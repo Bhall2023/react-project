@@ -1,13 +1,13 @@
 .Weather {
   font-family: Poppings, sans-serif;
-  border: 1px solid #dadde1;
+  border: 1px solid #FFFFFF;
     max-width: 500px;
     margin: auto;
   padding: 16px;
   border-radius: 4px;
-  color: whitesmoke;
-    background-color: black;
-
+  color: #FFFFFF;
+    background-color: #1E1E2F;
+  
 }
 
 .Weather h1 {
@@ -31,7 +31,7 @@
 
 .Weather .temperature {
   font-weight: bold;
-  color: whitesmoke;
+  color: #FFFFFF;
   font-size: 64px;
   line-height: 64px;
   margin-left: 5px;
@@ -42,7 +42,7 @@
 .Weather img {
   height: 64px;
   width: 64px;
-    vertical-align: middle;
+  vertical-align: middle;
   margin-right: 10px;
   display: inline-block;
   position: relative;
@@ -50,7 +50,7 @@
 
 
 .Weather .unit {
-  color: whitesmoke;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: 400;
   position: relative;
