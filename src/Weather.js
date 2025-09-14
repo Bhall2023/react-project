@@ -7,6 +7,7 @@ import WeatherInfo from "./WeatherInfo";
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ready: false});
     const [city, setCity] = useState(props.defaultCity);
+
     function handleResponse(response) {
        const data = response.data;
        const date = new Date((data.time + (data.timezone_offset || 0)) * 1000);
@@ -21,7 +22,7 @@ export default function Weather(props) {
             wind: data.wind.speed,
             humidity: data.temperature.humidity,
             description: data.condition.description,
-            iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+            iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.condition.icon}.png`
         });
     }
 
