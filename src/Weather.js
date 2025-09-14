@@ -11,12 +11,14 @@ export default function Weather(props) {
     function handleResponse(response) {
        const data = response.data;
        const date = new Date((data.time + (data.timezone_offset || 0)) * 1000);
+       
         setWeatherData({
             ready: true,
             time: data.time,
             timezone_offset: data.timezone_offset,
             date: date,
             temperature: data.temperature.current,
+            celsius: (data.temperature.current - 32) * 5/9,
             precipitation: data.precipitation,
             city: data.city,
             wind: data.wind.speed,
