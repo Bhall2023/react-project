@@ -6,17 +6,16 @@ import axios from "axios";
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ready: false});
     function handleResponse(response) {
-        console.log(response.data);
-
+        const data = response.data;
         setWeatherData({
             ready: true,
-            date: new Date(response.data.time * 1000),
-            temperature: response.data.temperature.current,
-            precipitation: response.data.temperature.precipitation,
-            city: response.data.city,
-            wind: response.data.wind.speed,
-            humidity: response.data.temperature.humidity,
-            description: response.data.condition.description,
+            date: new Date(data.time * 1000),
+            temperature: data.temperature.current,
+            precipitation: data.precipitation,
+            city: data.city,
+            wind: data.wind.speed,
+            humidity: data.temperature.humidity,
+            description: data.condition.description,
             iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
         });
 
@@ -41,11 +40,11 @@ export default function Weather(props) {
         </div>
       </form>
 
-      <h1>New York</h1>
+      <h1>{weatherData.city}</h1>
       <ul>
-        <li>weatherData.date</li>
+        <li>{weatherData.date.toLocaleString("en-US", { weekday: "long", hour: "2-digit", minute: "2-digit" })}</li>
         <li className="text-capitalize">{weatherData.description}</li>
-        <li>Mostly Cloudy</li>
+        
       </ul>
 
       <div className="row mt-3">
@@ -66,7 +65,7 @@ export default function Weather(props) {
           <ul>
             <li>Precipitation: {weatherData.precipitation}%</li>
             <li>Humidity: {weatherData.humidity}%</li>
-            <li>Wind: {weatherData.wind.speed} km/h</li>
+            <li>Wind: {Math.round(weatherData.wind)} mph</li>
           </ul>
         </div>
       </div>
