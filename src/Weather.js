@@ -1,15 +1,24 @@
 import React, { useState }from "react";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
+
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ready: false});
     function handleResponse(response) {
+
+console.log(response.data);
+
         const data = response.data;
+       const date = new Date((data.time + (data.timezone_offset || 0)) * 1000);
+
         setWeatherData({
             ready: true,
-            date: new Date(data.time * 1000),
+            time: data.time,
+            timezone_offset: data.timezone_offset,
+            date: date,
             temperature: data.temperature.current,
             precipitation: data.precipitation,
             city: data.city,
@@ -42,7 +51,13 @@ export default function Weather(props) {
 
       <h1>{weatherData.city}</h1>
       <ul>
-        <li>{weatherData.date.toLocaleString("en-US", { weekday: "long", hour: "2-digit", minute: "2-digit" })}</li>
+        
+        <li>
+            <FormattedDate date={weatherData.date}  />
+        </li>
+
+
+
         <li className="text-capitalize">{weatherData.description}</li>
         
       </ul>
