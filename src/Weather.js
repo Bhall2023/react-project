@@ -43,7 +43,7 @@ export default function Weather(props) {
 
       <h1>New York</h1>
       <ul>
-        <li>WeatherData.date</li>
+        <li>weatherData.date</li>
         <li className="text-capitalize">{weatherData.description}</li>
         <li>Mostly Cloudy</li>
       </ul>
@@ -52,7 +52,7 @@ export default function Weather(props) {
         <div className="col-6">
           <div className="clearfix">
           <img
-            src={weatherData.icon}
+            src={weatherData.iconUrl}
             alt={weatherData.description}   
             className="float-left"
           />
