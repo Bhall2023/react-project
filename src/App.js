@@ -1,5 +1,6 @@
 import React from "react";
-import Weather from "./Weather";  
+import Weather from "./Weather"; 
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 
@@ -7,7 +8,6 @@ export default function App() {
   return <div className="App">
     <div className="container">
       <Weather />
-    <h1>Weather App</h1>
     
   <footer>
   This project was coded by <a href = "https://www.shecodes.io/graduates/162107-bonnie-hall" target="_blank" rel="noopener noreferrer">Bonnie Hall</a> and is open-sourced on {" "}
