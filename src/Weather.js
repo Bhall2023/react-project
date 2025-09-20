@@ -19,7 +19,6 @@ export default function Weather(props) {
             date: date,
             temperature: data.temperature.current,
             celsius: (data.temperature.current - 32) * 5/9,
-            precipitation: data.precipitation,
             city: data.city,
             wind: data.wind.speed,
             humidity: data.temperature.humidity,
